@@ -288,10 +288,8 @@ void init_cockpit()
 
 	switch( PlayerCfg.CockpitMode[1] ) {
 		case CM_FULL_COCKPIT:
-        {
 			game_init_render_sub_buffers(0, 0, SWIDTH, (SHEIGHT*2)/3);
 			break;
-        }
 
 		case CM_REAR_VIEW:
 		{

@@ -447,7 +447,6 @@ int main_menu_handler(newmenu *menu, d_event *event, int *menu_choice )
 
 		case EVENT_NEWMENU_DRAW:
 			draw_copyright();
-
 			break;
 
 		case EVENT_NEWMENU_SELECTED:
@@ -523,6 +522,7 @@ int DoMenu()
 		d_free(menu_choice);
 		return -1;
 	}
+
 	memset(menu_choice, 0, sizeof(int)*25);
 	memset(m, 0, sizeof(newmenu_item)*25);
 

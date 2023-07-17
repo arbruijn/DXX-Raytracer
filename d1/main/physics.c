@@ -492,7 +492,6 @@ void do_physics_sim(object *obj)
 			obj->pos.x += objnum;
 		}
 	}
-
 #endif
 
 	start_pos = obj->pos;
@@ -553,7 +552,6 @@ void do_physics_sim(object *obj)
 				total_drag = fixmul(total_drag,f1_0-fixmul(k,drag));
 
 				vm_vec_scale(&obj->mtype.phys_info.velocity,total_drag);
-
 			}
 		} else if (STRATEGY == GEOMETRIC_DRAG) {
 			if (obj->mtype.phys_info.flags & PF_USES_THRUST) {
@@ -600,7 +598,6 @@ void do_physics_sim(object *obj)
 
 		if ( (frame_vec.x==0) && (frame_vec.y==0) && (frame_vec.z==0) )	
 			break;
-		
 
 		count++;
 
@@ -611,6 +608,7 @@ void do_physics_sim(object *obj)
 		
 		// The rest of this function is collision stuff
 		// Observers just fly free
+
 		if(Game_mode & GM_OBSERVER && 
 			((obj->id == Player_num) ||
 			((Game_mode & GM_MULTI_COOP) && (obj - Objects == 7))) ) {

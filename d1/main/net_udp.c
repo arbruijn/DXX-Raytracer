@@ -640,7 +640,7 @@ int udp_tracker_unregister()
 	// Send it off
 	return dxx_sendto( UDP_Socket[2], pBuf, iLen, 0, (struct sockaddr *)&TrackerSocket, sizeof( TrackerSocket ) );
 }
-	
+
 /* Tell the tracker we're starting a game */
 int udp_tracker_register()
 {
@@ -5385,10 +5385,10 @@ void net_udp_noloss_clear_mdata_got(ubyte player_num)
 void net_udp_noloss_process_queue(fix64 time)
 {
 	int queuec = 0, plc = 0, total_len = 0;
-					
+
 	if (!(Game_mode&GM_NETWORK) || UDP_Socket[0] == -1)
 		return;
-					
+
 	if (!Netgame.PacketLossPrevention)
 		return;
 

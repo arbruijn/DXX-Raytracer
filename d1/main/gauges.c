@@ -1922,8 +1922,8 @@ void draw_weapon_box_hud_3d_cockpit(int weapon_type, int weapon_num)
 void draw_weapon_box(int weapon_type,int weapon_num)
 {
 	gr_set_current_canvas(NULL);
-	gr_set_curfont( GAME_FONT );
 
+	gr_set_curfont( GAME_FONT );
 
 	if (weapon_num != old_weapon[weapon_type] && weapon_box_states[weapon_type] == WS_SET && (old_weapon[weapon_type] != -1) && !PlayerCfg.HudMode)
 	{

@@ -64,7 +64,6 @@ COPYRIGHT 1993-1998 PARALLAX SOFTWARE CORPORATION.  ALL RIGHTS RESERVED.
 #include "dx12.h"
 #endif
 
-
 #define INITIAL_LOCAL_LIGHT (F1_0/4)    // local light value in segment of occurence (of light emission)
 
 #ifdef EDITOR
@@ -661,8 +660,6 @@ void render_start_frame()
 
 //Given a lit of point numbers, rotate any that haven't been rotated this frame
 g3s_codes rotate_list(int nv,int *pointnumlist)
-	//sort objects!
-	//object_sort_segment_objects( seg );
 		
 {
 	int i,pnum;
@@ -742,6 +739,9 @@ void render_segment(int segnum)
 	}
 
 	//draw any objects that happen to be in this segment
+
+	//sort objects!
+	//object_sort_segment_objects( seg );
 
 #ifndef NDEBUG && RT_DX12
 	if (!migrate_objects) {
@@ -1197,10 +1197,10 @@ void add_obj_to_seglist(int objnum,int listnum)
 
 	do {
 
-		for (i=0; render_obj_list[checkn][i] >= 0;i++);
-
+		for (i=0;render_obj_list[checkn][i] >= 0;i++);
+	
 		Assert(i < OBJS_PER_SEG);
-
+	
 		marker = render_obj_list[checkn][i];
 
 		if (marker != -1) {
@@ -1388,7 +1388,7 @@ void start_lighting_frame(object *viewer);
 
 #ifdef JOHN_ZOOM
 fix Zoom_factor=F1_0;
-	#endif
+#endif
 #ifdef RT_DX12
 #include "Renderer.h"
 #include "Core/MiniMath.h"
@@ -1475,7 +1475,7 @@ void render_frame(fix eye_offset)
 		}
 #else
 		g3_set_view_matrix(&Viewer_eye,&Viewer->orient,Render_zoom);
-							#endif
+#endif
 	#endif
 
 	}
@@ -1646,7 +1646,7 @@ void build_segment_list(int start_seg_num)
 	//breadth-first renderer
 
 	//build list
-	
+
 	for (l=0;l<Render_depth;l++) {
 
 		//while (scnt < ecnt) {
@@ -1698,6 +1698,7 @@ void build_segment_list(int start_seg_num)
 							codes_and &= Segment_points[seg->verts[sv[i]]].p3_codes;
 
 						if (codes_and & CC_BEHIND) continue;
+
 					}
 					child_list[n_children++] = c;
 				}
@@ -1707,7 +1708,6 @@ void build_segment_list(int start_seg_num)
 
 			if (new_seg_sorting)
 				sort_seg_children(seg,n_children,child_list);
-
 
 			//for (c=0;c<MAX_SIDES_PER_SEGMENT;c++)	{
 			//	ch=seg->children[c];
@@ -1758,6 +1758,7 @@ void build_segment_list(int start_seg_num)
 
 							if (_y < min_y) min_y = _y;
 							if (_y > max_y) max_y = _y;
+
 						}
 
 						#ifndef NDEBUG
@@ -1797,7 +1798,6 @@ void build_segment_list(int start_seg_num)
 										processed[rp] = 0;		//force reprocess
 										goto no_add;
 									}
-
 									else
 										Render_list[rp]=-1;
 								}
@@ -1822,6 +1822,7 @@ void build_segment_list(int start_seg_num)
 							#endif
 no_add:
 	;
+
 						}
 					}
 					else {

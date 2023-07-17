@@ -1421,8 +1421,7 @@ void render_frame(fix eye_offset)
 	int start_seg_num;
 
 
-	if (Endlevel_sequence)
-	{
+	if (Endlevel_sequence) {
 		render_endlevel_frame(eye_offset);
 		return;
 	}
@@ -1656,7 +1655,7 @@ void build_segment_list(int start_seg_num)
 
 	//build list
 	
-	for (l = 0; l < Render_depth; l++) {
+	for (l=0;l<Render_depth;l++) {
 
 		//while (scnt < ecnt) {
 		for (scnt=0;scnt < ecnt;scnt++) {
@@ -1706,8 +1705,7 @@ void build_segment_list(int start_seg_num)
 						for (i=0;i<4;i++)
 							codes_and &= Segment_points[seg->verts[sv[i]]].p3_codes;
 
-						if (codes_and & CC_BEHIND)
-							continue;
+						if (codes_and & CC_BEHIND) continue;
 					}
 					child_list[n_children++] = c;
 				}
@@ -1715,17 +1713,14 @@ void build_segment_list(int start_seg_num)
 
 			//now order the sides in some magical way
 
-
-
 			if (new_seg_sorting)
 				sort_seg_children(seg,n_children,child_list);
 
 
 			//for (c=0;c<MAX_SIDES_PER_SEGMENT;c++)	{
-
 			//	ch=seg->children[c];
-			for (c = 0; c < n_children; c++)
-			{
+
+			for (c=0;c<n_children;c++) {
 				int siden;
 
 				siden = child_list[c];
@@ -1832,8 +1827,9 @@ void build_segment_list(int start_seg_num)
 							#ifndef NDEBUG
 							if (pre_draw_segs)
 								render_segment(ch);
-#endif
-						no_add:;
+							#endif
+no_add:
+	;
 						}
 					}
 					else {
@@ -1857,6 +1853,7 @@ done_list:
 
 	first_terminal_seg = scnt;
 	N_render_segs = lcnt;
+
 }
 
 //renders onto current canvas
@@ -1964,8 +1961,7 @@ void render_mine(int start_seg_num,fix eye_offset)
 
 #ifndef OGL
 
-	for (nn=N_render_segs;nn--;)
-	{
+	for (nn=N_render_segs;nn--;) {
 		int segnum;
 		int objnp;
 
@@ -2019,10 +2015,11 @@ void render_mine(int start_seg_num,fix eye_offset)
 				}
 
 				Max_linear_depth = save_linear_depth;
+
 			}
+
 		}
 	}
-
 #else
 	// Sorting elements for Alpha - 3 passes
 	// First Pass: render opaque level geometry + transculent level geometry with high Alpha-Test func
@@ -2191,6 +2188,7 @@ done_rendering:
 	;
 
 #endif
+
 }
 #ifdef EDITOR
 

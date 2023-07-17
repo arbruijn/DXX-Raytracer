@@ -445,7 +445,6 @@ int main_menu_handler(newmenu *menu, d_event *event, int *menu_choice )
 				newdemo_start_playback(NULL);		// Randomly pick a file
 			}
 			break;
-
 		case EVENT_NEWMENU_DRAW:
 			draw_copyright();
 
@@ -524,7 +523,6 @@ int DoMenu()
 		d_free(menu_choice);
 		return -1;
 	}
-
 	memset(menu_choice, 0, sizeof(int)*25);
 	memset(m, 0, sizeof(newmenu_item)*25);
 
@@ -777,7 +775,7 @@ int do_new_game_menu()
 {
 	int new_level_num,player_highest_level;
 
-	new_level_num = 1; 
+	new_level_num = 1;
 #ifdef SHIPPING_BUILD
 	player_highest_level = get_highest_level();
 
@@ -1323,6 +1321,7 @@ int raytrace_config_menuset(newmenu *menu, d_event *event, void *userdata)
 		default:
 			break;
 	}
+
 
 	return 0;
 }

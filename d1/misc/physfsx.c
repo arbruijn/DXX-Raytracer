@@ -224,7 +224,7 @@ void PHYSFSX_listSearchPathContent()
 	for (i = list; *i != NULL; i++)
 		RT_LOGF(RT_LOGSERVERITY_INFO, "PHYSFS: [%s] is in the Search Path.\n", *i);
 	PHYSFS_freeList(list);
-
+	
 	list = PHYSFS_enumerateFiles("");
 	for (i = list; *i != NULL; i++)
 		RT_LOGF(RT_LOGSERVERITY_INFO, "PHYSFS: * We've got [%s].\n", *i);

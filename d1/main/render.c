@@ -386,7 +386,7 @@ void check_face(int segnum, int sidenum, int facenum, int nv, int *vp, int tmap1
 			found_side = sidenum;
 			found_face = facenum;
 		}
-
+		
 	}
 }
 #endif
@@ -699,6 +699,7 @@ g3s_codes rotate_list(int nv,int *pointnumlist)
 	}
 
 	return cc;
+
 }
 
 //Given a lit of point numbers, project any that haven't been projected
@@ -713,6 +714,7 @@ void project_list(int nv,int *pointnumlist)
 		if (!(Segment_points[pnum].p3_flags & PF_PROJECTED))
 
 			g3_project_point(&Segment_points[pnum]);
+
 	}
 }
 
@@ -742,8 +744,7 @@ void render_segment(int segnum)
 	//draw any objects that happen to be in this segment
 
 #ifndef NDEBUG && RT_DX12
-	if (!migrate_objects)
-	{
+	if (!migrate_objects) {
 		int objnum;
 		for (objnum=seg->objects;objnum!=-1;objnum=Objects[objnum].next)
 			do_render_object(objnum);
@@ -1097,10 +1098,10 @@ int find_joining_side_norms(vms_vector *norm0_0,vms_vector *norm0_1,vms_vector *
 
 	*pnt0 = &Vertices[seg0->verts[Side_to_verts[edgeside0][seg0->sides[edgeside0].type==3?1:0]]];
 	*pnt1 = &Vertices[seg1->verts[Side_to_verts[edgeside1][seg1->sides[edgeside1].type==3?1:0]]];
-	
+
 	return 1;
 }
-	
+
 //see if the order matters for these two children.
 //returns 0 if order doesn't matter, 1 if c0 before c1, -1 if c1 before c0
 int compare_children(segment *seg,short c0,short c1)
@@ -1134,8 +1135,6 @@ int compare_children(segment *seg,short c0,short c1)
 
 	if (d0 < 0 && d1 < 0)
 		return 0;
-
-
 
 	if (d0 < 0)
 		return 1;
@@ -1179,7 +1178,7 @@ int sort_seg_children(segment *seg,int n_children,short *child_list)
 						made_swaps=1;
 					}
 				}
-				
+
 	} while (made_swaps && ++count<n_children);
 
  if (count)
@@ -1192,19 +1191,13 @@ void add_obj_to_seglist(int objnum,int listnum)
 {
 	int i,checkn,marker;
 
-					did_migrate = 0;
-	
-					m = get_seg_masks(&obj->pos, new_segnum, obj->size, __FILE__, __LINE__);
-	
 	checkn = listnum;
 
 	//first, find a slot
 
-	do
-	{
+	do {
 
-		for (i = 0; render_obj_list[checkn][i] >= 0; i++)
-			;
+		for (i=0; render_obj_list[checkn][i] >= 0;i++);
 
 		Assert(i < OBJS_PER_SEG);
 
@@ -1304,8 +1297,11 @@ void build_object_lists(int n_segs)
 				do {
 					segmasks m;
 
-						if (m.sidemask)
-						{
+					did_migrate = 0;
+	
+					m = get_seg_masks(&obj->pos, new_segnum, obj->size, __FILE__, __LINE__);
+	
+					if (m.sidemask) {
 						int sn,sf;
 
 						for (sn=0,sf=1;sn<6;sn++,sf<<=1)
@@ -1939,10 +1935,8 @@ void render_mine(int start_seg_num,fix eye_offset)
 	
 			gr_setcolor(Clear_window_color);
 
-			for (i = first_terminal_seg; i < N_render_segs; i++)
-			{
-				if (Render_list[i] != -1)
-				{
+			for (i=first_terminal_seg; i<N_render_segs; i++) {
+				if (Render_list[i] != -1) {
 					#ifndef NDEBUG
 					if ((render_windows[i].left == -1) || (render_windows[i].top == -1) || (render_windows[i].right == -1) || (render_windows[i].bot == -1)) {
 						Int3();

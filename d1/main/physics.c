@@ -626,6 +626,7 @@ void do_physics_sim(object *obj)
 #endif
 		
 		ignore_obj_list[n_ignore_objs] = -1;
+
 		fq.p0						= &obj->pos;
 		fq.startseg				= obj->segnum;
 		fq.p1						= &new_pos;

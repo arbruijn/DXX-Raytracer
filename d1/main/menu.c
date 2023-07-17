@@ -444,6 +444,7 @@ int main_menu_handler(newmenu *menu, d_event *event, int *menu_choice )
 				newdemo_start_playback(NULL);		// Randomly pick a file
 			}
 			break;
+
 		case EVENT_NEWMENU_DRAW:
 			draw_copyright();
 
@@ -526,7 +527,6 @@ int DoMenu()
 	memset(m, 0, sizeof(newmenu_item)*25);
 
 	create_main_menu(m, menu_choice, &num_options); // may have to change, eg, maybe selected pilot and no save games.
-
 
 	newmenu_do3( "", NULL, num_options, m, (int (*)(newmenu *, d_event *, void *))main_menu_handler, menu_choice, 0, Menu_pcx_name);
 

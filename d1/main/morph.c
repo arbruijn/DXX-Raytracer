@@ -357,12 +357,12 @@ void draw_model(object* obj, int submodel_num, g3s_lrgb light, morph_data* md)
 				sort_list[0] = i;
 
 				sort_n++;
-	
+
 
 			}
 
 		}
-
+	
 
 	//now draw everything
 

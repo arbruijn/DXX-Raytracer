@@ -315,14 +315,14 @@ int main(int argc, char *argv[])
 #endif //SHIPPING_BUILD
 	if (GameArg.SysShowCmdHelp) {
 		print_commandline_help();
-	
+
 		return(0);
 	}
 
 	printf("\nType %s -help' for a list of command-line options.\n\n", PROGNAME);
 
 	PHYSFSX_listSearchPathContent();
-
+	
 	if (!PHYSFSX_checkSupportedArchiveTypes())
 		return(0);
 
@@ -360,7 +360,7 @@ int main(int argc, char *argv[])
 	}
 
 	load_text();
-	
+
 	//print out the banner title
 	con_printf(CON_NORMAL, "%s  %s\n", DESCENT_VERSION, g_descent_build_datetime); // D1X version
 	con_printf(CON_NORMAL, "This is a MODIFIED version of Descent, based on %s.\n", BASED_VERSION);
@@ -436,7 +436,7 @@ int main(int argc, char *argv[])
 				WriteConfigFile();
 			}
 	}
-	
+
 
 		Game_mode = GM_GAME_OVER;
 		DoMenu();
@@ -449,7 +449,7 @@ int main(int argc, char *argv[])
 	while (window_get_front())
 		// Send events to windows and the default handler
 		event_process();
-
+	
 	// Tidy up - avoids a crash on exit
 	{
 		window *wind;

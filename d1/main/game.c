@@ -459,7 +459,6 @@ void calc_d_tick()
 
 	d_tick_step = 0;
 
-
 	timer += FrameTime;
 	if (timer >= F1_0/20)
 	{
@@ -1085,7 +1084,7 @@ int game_handler(window *wind, d_event *event, void *data)
 
 			if (!((Game_mode & GM_MULTI) && (Newdemo_state != ND_STATE_PLAYBACK)))
 				palette_save();
-			
+
 			event_toggle_focus(0);
 			key_toggle_repeat(1);
 			break;
@@ -1102,7 +1101,6 @@ int game_handler(window *wind, d_event *event, void *data)
 			return ReadControls(event);
 
 		case EVENT_WINDOW_DRAW:
-
 			if (!time_paused)
 			{
 				calc_frame_time();

@@ -1838,6 +1838,7 @@ no_add:
 
 		scnt = ecnt;
 		ecnt = lcnt;
+
 	}
 done_list:
 
@@ -1858,7 +1859,6 @@ void render_mine(int start_seg_num,fix eye_offset)
 	#ifndef NDEBUG
         int i;
 	for (i=0;i<=Highest_object_index;i++)
-
 		object_rendered[i] = 0;
 	#endif
 //end move - Victor Rachels
@@ -1879,6 +1879,7 @@ void render_mine(int start_seg_num,fix eye_offset)
 		goto done_rendering;
 	}
 	#endif
+
 
 	#ifdef EDITOR
 	if (_search_mode || eye_offset>0)	{
@@ -1935,7 +1936,7 @@ void render_mine(int start_seg_num,fix eye_offset)
 				Clear_window_color = BM_XRGB(0, 0, 0);	//BM_XRGB(31, 15, 7);
 	
 			gr_setcolor(Clear_window_color);
-
+	
 			for (i=first_terminal_seg; i<N_render_segs; i++) {
 				if (Render_list[i] != -1) {
 					#ifndef NDEBUG
@@ -1951,7 +1952,6 @@ void render_mine(int start_seg_num,fix eye_offset)
 	}
 
 #ifndef OGL
-
 	for (nn=N_render_segs;nn--;) {
 		int segnum;
 		int objnp;
@@ -2002,6 +2002,7 @@ void render_mine(int start_seg_num,fix eye_offset)
 
 						listnum = -ObjNumber;
 						objnp = 0;
+
 					}
 				}
 
@@ -2112,6 +2113,7 @@ void render_mine(int start_seg_num,fix eye_offset)
 					}
 					else
 					{
+
 						listnum = -ObjNumber;
 						objnp = 0;
 					}

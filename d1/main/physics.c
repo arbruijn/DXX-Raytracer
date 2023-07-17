@@ -544,6 +544,7 @@ void do_physics_sim(object *obj)
 			else if (drag)
 			{
 				fix total_drag=f1_0;
+
 				while (count--)
 					total_drag = fixmul(total_drag,f1_0-drag);
 
@@ -605,10 +606,10 @@ void do_physics_sim(object *obj)
 		if (count > 8) break; // in original code this was 3 for all non-player objects. still leave us some limit in case fvi goes apeshit.
 
 		vm_vec_add(&new_pos,&obj->pos,&frame_vec);
-		
+
 		// The rest of this function is collision stuff
 		// Observers just fly free
-
+		
 		if(Game_mode & GM_OBSERVER && 
 			((obj->id == Player_num) ||
 			((Game_mode & GM_MULTI_COOP) && (obj - Objects == 7))) ) {
@@ -638,7 +639,6 @@ void do_physics_sim(object *obj)
 
 		if (obj->type == OBJ_PLAYER)
 			fq.flags |= FQ_GET_SEGLIST;
-
 
 		fate = find_vector_intersection(&fq,&hit_info);
 		//if(fate != HIT_NONE) {
@@ -740,7 +740,6 @@ void do_physics_sim(object *obj)
 			else {
 				fix old_sim_time;
 
-
 				attempted_dist = vm_vec_mag(&frame_vec);
 
 				old_sim_time = sim_time;
@@ -757,6 +756,7 @@ void do_physics_sim(object *obj)
 				}
 			}
 		}
+
 
 		switch( fate )		{
 

@@ -660,7 +660,6 @@ void render_start_frame()
 
 //Given a lit of point numbers, rotate any that haven't been rotated this frame
 g3s_codes rotate_list(int nv,int *pointnumlist)
-		
 {
 	int i,pnum;
 	g3s_point *pnt;
@@ -714,6 +713,7 @@ void project_list(int nv,int *pointnumlist)
 
 	}
 }
+
 
 // -----------------------------------------------------------------------------------
 void render_segment(int segnum)
@@ -2004,6 +2004,7 @@ void render_mine(int start_seg_num,fix eye_offset)
 						objnp = 0;
 
 					}
+
 				}
 
 				Max_linear_depth = save_linear_depth;
@@ -2113,9 +2114,9 @@ void render_mine(int start_seg_num,fix eye_offset)
 					}
 					else
 					{
-
 						listnum = -ObjNumber;
 						objnp = 0;
+
 					}
 				}
 				Max_linear_depth = save_linear_depth;

@@ -306,10 +306,8 @@ void init_cockpit()
 			break;
 
 		case CM_STATUS_BAR:
-        {
 			game_init_render_sub_buffers( 0, 0, SWIDTH, (HIRESMODE?(SHEIGHT*2)/2.6:(SHEIGHT*2)/2.72) );
 			break;
-        }
 
 		case CM_LETTERBOX:
 		{

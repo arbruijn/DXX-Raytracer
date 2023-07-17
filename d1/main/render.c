@@ -350,7 +350,6 @@ void check_face(int segnum, int sidenum, int facenum, int nv, int *vp, int tmap1
 		g3s_point *pointlist[4];
 
 		memset(dyn_light, 0, sizeof(dyn_light));
-		
 #ifndef OGL
 		if (tmap2 > 0 )
 			bm = texmerge_get_cached_bitmap( tmap1, tmap2 );
@@ -387,6 +386,7 @@ void check_face(int segnum, int sidenum, int facenum, int nv, int *vp, int tmap1
 			found_side = sidenum;
 			found_face = facenum;
 		}
+
 	}
 }
 #endif
@@ -624,7 +624,6 @@ void do_render_object(int objnum)
 
 
 	#ifdef EDITOR
-
 	if (EditorWindow && objnum==Cur_object_index)
 		g3d_interp_outline = save_3d_outline;
 	#endif
@@ -639,16 +638,13 @@ int check_window_check=0;
 #define draw_boxes			0
 #define window_check			1
 #define draw_edges			0
-
 #define new_seg_sorting		1
 #define pre_draw_segs		0
 #define no_migrate_segs		1
-
 #define migrate_objects		1
 #define behind_check			1
 #define check_window_check	0
-	#endif
-
+#endif
 
 //increment counter for checking if points rotated
 //This must be called at the start of the frame if rotate_list() will be used

@@ -742,7 +742,7 @@ void render_segment(int segnum)
 
 	//sort objects!
 	//object_sort_segment_objects( seg );
-
+		
 #ifndef NDEBUG && RT_DX12
 	if (!migrate_objects) {
 		int objnum;
@@ -1237,7 +1237,9 @@ void add_obj_to_seglist(int objnum,int listnum)
 		render_obj_list[checkn][i] = -lookn;
 		render_obj_list[lookn][0] = objnum;
 		render_obj_list[lookn][1] = -1;
+
 	}
+
 }
 
 #define SORT_LIST_SIZE 50

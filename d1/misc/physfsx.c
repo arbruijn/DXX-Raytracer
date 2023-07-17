@@ -221,7 +221,7 @@ void PHYSFSX_listSearchPathContent()
 	for (i = list; *i != NULL; i++)
 		con_printf(CON_DEBUG, "PHYSFS: [%s] is in the Search Path.\n", *i);
 	PHYSFS_freeList(list);
-	
+
 	list = PHYSFS_enumerateFiles("");
 	for (i = list; *i != NULL; i++)
 		con_printf(CON_DEBUG, "PHYSFS: * We've got [%s].\n", *i);
